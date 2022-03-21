@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react'
-import { FlatList, View, NativeEventEmitter, PermissionsAndroid, Platform } from 'react-native'
+import { Text, View, NativeEventEmitter, PermissionsAndroid, Platform } from 'react-native'
 import Header from '../../components/header'
 import styles from './styles'
 import {RNLocationSatellites} from 'react-native-location-satellites';
@@ -7,6 +7,15 @@ const GPSEventEmitter = new NativeEventEmitter(RNLocationSatellites)
 import RNAndroidLocationEnabler from 'react-native-android-location-enabler';
 
 function Satellite(){
+
+  const [satellites, setSatellites] = useState(0)
+  const [bearing, setBearing] = useState(0)
+  const [speed, setSpeed] = useState(0)
+  const [accuracy, setAccuracy] = useState(0)
+  const [altitude, setAltitude] = useState(0)
+  const [elapsedTime, setElapsedTime] = useState('')
+  const [latitude, setLatitude] = useState('')
+  const [longitude, setLongitude] = useState('')
 
     async function permission(){
         try {
@@ -35,9 +44,9 @@ function Satellite(){
     }
 
     useEffect(() => {
-        /*permission()
+        permission()
         setTimeout(readSatellites,5000)
-        return(() => GPSEventEmitter.removeListener('RNSatellite'))*/
+        return(() => GPSEventEmitter.removeListener('RNSatellite'))
     },[])
 
 
@@ -47,6 +56,13 @@ function Satellite(){
         GPSEventEmitter.addListener('RNSatellite', (event) => {
             console.log(JSON.stringify(event))
             //alert(JSON.stringify(event))
+            setSatellites(event.satellites)
+            setBearing(event.bearing)
+            setAccuracy(event.accuracy),
+            setLatitude(event.latitude)
+            setLongitude(event.longitude)
+            setAltitude(event.altitude)
+            setElapsedTime(event.elapsed_time)
         })
     
         RNLocationSatellites.getKnownLocation().then((location)=>{
@@ -56,7 +72,18 @@ function Satellite(){
 
     return(
         <View style={styles.container}>
-            <Header/>
+            <Header title='Satellite' icon='satellite'/>
+            <View style={styles.card}>
+                <Text style={styles.title}>Setellites location</Text>
+                <Text style={styles.subtitle}>Satellites: {satellites}</Text>
+                <Text style={styles.subtitle}>Bearing: {bearing}</Text>
+                <Text style={styles.subtitle}>Speed: {speed}</Text>
+                <Text style={styles.subtitle}>Accuracy: {accuracy}</Text>
+                <Text style={styles.subtitle}>ElapsedTime: {elapsedTime}</Text>
+                <Text style={styles.subtitle}>Altitude: {altitude}</Text>
+                <Text style={styles.subtitle}>Latitude: {latitude}</Text>
+                <Text style={styles.subtitle}>Longitude: {longitude}</Text>
+           </View>
         </View>
     )
 }

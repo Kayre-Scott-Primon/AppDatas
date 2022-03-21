@@ -9,9 +9,10 @@ import {useNetInfo} from "@react-native-community/netinfo";
 
 function WiFi(){
 
-    const info = useNetInfo()
+    const [info, setInfo] = useState({})
 
     useEffect(() => {
+        setInfo(useNetInfo())
         NetInfo.fetch().then(state => {
             console.log("Connection type", state.type);
             console.log("Is connected?", state.isConnected);
@@ -28,19 +29,23 @@ function WiFi(){
             <Header title={'WiFi'} icon={'mobile-alt'}/>
             <View style={styles.card}>
                 <Text style={styles.title}>Wifi - NetInfo</Text>
-                <Text style={styles.subtitle}>bssid: {info.details.bssid}</Text>
-                <Text style={styles.subtitle}>ssid: {info.details.ssid}</Text>
-                <Text style={styles.subtitle}>Strength: {info.details.strength}</Text>
-                <Text style={styles.subtitle}>Frequency: {info.details.frequency}</Text>
-                <Text style={styles.subtitle}>Subnet: {info.details.subnet}</Text>
-                <Text style={styles.subtitle}>Carrier: {info.details.carrier}</Text>
-                <Text style={styles.subtitle}>is connected: {info.isConnected}</Text>
-                <Text style={styles.subtitle}>In internet reachable: {info.isInternetReachable}</Text>
-                <Text style={styles.subtitle}>In wifi enable: {info.isWifiEnabled}</Text>
-                <Text style={styles.subtitle}>inAddress: {info.details.ipAddress}</Text>
-                <Text style={styles.subtitle}>type: {info.type}</Text>
-                <Text style={styles.subtitle}>Cellular Generation: {info.details.cellularGeneration}</Text>
-                <Text style={styles.subtitle}>in Connection Expensive: {info.details.isConnectionExpensive}</Text>
+                {Object.keys(info).length > 0 && 
+                <>
+                    <Text style={styles.subtitle}>bssid: {info.details.bssid}</Text>
+                    <Text style={styles.subtitle}>ssid: {info.details.ssid}</Text>
+                    <Text style={styles.subtitle}>Strength: {info.details.strength}</Text>
+                    <Text style={styles.subtitle}>Frequency: {info.details.frequency}</Text>
+                    <Text style={styles.subtitle}>Subnet: {info.details.subnet}</Text>
+                    <Text style={styles.subtitle}>Carrier: {info.details.carrier}</Text>
+                    <Text style={styles.subtitle}>is connected: {info.isConnected}</Text>
+                    <Text style={styles.subtitle}>In internet reachable: {info.isInternetReachable}</Text>
+                    <Text style={styles.subtitle}>In wifi enable: {info.isWifiEnabled}</Text>
+                    <Text style={styles.subtitle}>inAddress: {info.details.ipAddress}</Text>
+                    <Text style={styles.subtitle}>type: {info.type}</Text>
+                    <Text style={styles.subtitle}>Cellular Generation: {info.details.cellularGeneration}</Text>
+                    <Text style={styles.subtitle}>in Connection Expensive: {info.details.isConnectionExpensive}</Text>
+                </>
+                }
            </View>
         </View>
     )
