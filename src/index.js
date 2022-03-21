@@ -12,6 +12,7 @@ import InfoApp from './screens/infoApp';
 import Hardware from "./screens/hardware";
 import Satellite from "./screens/satellite"
 import Bluetooth from "./screens/bluetooth";
+import WiFi from "./screens/wifi";
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Stack.Screen name="InfoApp" component={InfoApp} options={{headerShown: false}}/>
             <Stack.Screen name="Satellite" component={Satellite} options={{headerShown: false}}/>
             <Stack.Screen name="Network" component={Network} options={{headerShown: false}}/>
+            <Stack.Screen name="Wifi" component={WiFi} options={{headerShown: false}}/>
         </Stack.Navigator>
     </NavigationContainer>
 )
