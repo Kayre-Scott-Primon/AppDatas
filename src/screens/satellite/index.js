@@ -74,6 +74,8 @@ function Satellite(){
         <View style={styles.container}>
             <Header title='Satellite' icon='satellite'/>
             <View style={styles.card}>
+            {longitude != 0 || latitude != 0 ? 
+              <>
                 <Text style={styles.title}>Setellites location</Text>
                 <Text style={styles.subtitle}>Satellites: {satellites}</Text>
                 <Text style={styles.subtitle}>Bearing: {bearing}</Text>
@@ -83,6 +85,10 @@ function Satellite(){
                 <Text style={styles.subtitle}>Altitude: {altitude}</Text>
                 <Text style={styles.subtitle}>Latitude: {latitude}</Text>
                 <Text style={styles.subtitle}>Longitude: {longitude}</Text>
+              </>
+              :
+              <Text style={styles.textWait}>Waiting ...</Text>
+            }
            </View>
         </View>
     )

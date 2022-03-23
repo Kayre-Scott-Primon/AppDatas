@@ -6,11 +6,23 @@ import CardMenu from '../../components/cardMenu';
 import Header from '../../components/header'
 import { menuList } from './data';
 import styles from './styles'
+import { BleManager } from 'react-native-ble-plx';
 
 function Bluetooth(){
 
     return(
         <View style={styles.container}>
+            <Header title='Bluetooth' icon='bluetooth'/>
+            <View style={styles.card}>
+            {true ? 
+            <>
+                <Text style={styles.title}>Bluetooth</Text>
+                <Text style={styles.subtitle}>Satellites: </Text>
+            </>
+            :
+            <Text style={styles.textWait}>Waiting ...</Text>
+            }
+           </View>
         </View>
     )
 }

@@ -26,5 +26,9 @@ export default StyleSheet.create({
     subtitle: {
         fontSize: 18,
         color: '#000'
+    },
+    textWait: {
+        color: '#666',
+        fontSize: 20,
     }
 })
