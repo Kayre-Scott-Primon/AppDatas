@@ -19,6 +19,7 @@
     "react-native-ble-manager": "^8.0.2",
     "react-native-ble-plx": "^2.0.3",
     "react-native-carrier-info": "^1.1.2",
+    "react-native-cli": "^2.0.1",
     "react-native-device-info": "^8.5.0",
     "react-native-elements": "^3.4.2",
     "react-native-location-satellites": "^1.0.5",

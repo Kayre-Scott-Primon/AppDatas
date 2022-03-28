@@ -11,6 +11,15 @@ function InfoApp(){
 
     return(
         <View style={styles.container}>
+        <Header title='Info' icon='info'/>
+            <View style={styles.card}>
+                <Text style={styles.title}>Info about this app</Text>
+                <Text style={styles.subtitle}>Created by: Kayré Scott Primon</Text>
+                <Text style={styles.subtitle}>Created at: 18/03/2022</Text>
+                <Text style={styles.subtitle}>Lasted update: 25/03/2022</Text>
+                <Text style={styles.subtitle}>Objective: App for read and show all possible data information to smartphone</Text>
+                <Text style={styles.subtitle}>Version: 1.0</Text>
+            </View>
         </View>
     )
 }

@@ -49,7 +49,7 @@ function Bluetooth(){
             {true ? 
             <>
                 <Text style={styles.title}>Bluetooth</Text>
-                <Text style={styles.subtitle}>Satellites: </Text>
+                <Text style={styles.subtitle}>Building ... </Text>
             </>
             :
             <Text style={styles.textWait}>Waiting ...</Text>
