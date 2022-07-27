@@ -5,14 +5,15 @@ import { View } from 'react-native'
 
 // pages
 import Main from "./screens/main";
+import WiFi from "./screens/wifi";
 import Splash from "./screens/splash";
 import Network from './screens/network'
 import Sensors from './screens/sensors';
 import InfoApp from './screens/infoApp';
+import Compass from './screens/compass';
 import Hardware from "./screens/hardware";
 import Satellite from "./screens/satellite"
 import Bluetooth from "./screens/bluetooth";
-import WiFi from "./screens/wifi";
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Stack.Screen name="Satellite" component={Satellite} options={{headerShown: false}}/>
             <Stack.Screen name="Network" component={Network} options={{headerShown: false}}/>
             <Stack.Screen name="Wifi" component={WiFi} options={{headerShown: false}}/>
+            <Stack.Screen name="Compass" component={Compass} options={{headerShown: false}}/>
         </Stack.Navigator>
     </NavigationContainer>
 )

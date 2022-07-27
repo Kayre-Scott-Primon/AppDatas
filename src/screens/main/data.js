@@ -36,7 +36,13 @@ export const menuList = [
         navigateTo: 'Sensors'
     },
     {
-        id: 7,
+        id: 8,
+        title: 'Compass',
+        icon: 'compass',
+        navigateTo: 'Compass'
+    },
+    {
+        id: 9,
         title: 'Info App',
         icon: 'info',
         navigateTo: 'InfoApp'
